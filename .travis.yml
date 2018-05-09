@@ -6,6 +6,9 @@ python:
     - "3.5"
     - "3.6"
 install:
+  - sudo apt-get install python-pip python-setuptools
+  - sudo -H python -m pip install -U pip
+  - sudo -H python -m pip install pillow
   - sudo apt-get install tesseract-ocr
 script:
   - python -m nose
