@@ -54,4 +54,3 @@ class TestImageToString(TestCase):
             if result == expected:
                 printf("File passed: {}".format(file_name))
             self.assertEqual(result, expected)
-
