@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-'''
+"""
 Python-tesseract. For more information: https://github.com/madmaze/pytesseract
-'''
+"""
 
 try:
     import Image
@@ -54,7 +54,7 @@ def get_errors(error_string):
 
 
 def cleanup(temp_name):
-    ''' Tries to remove files by filename wildcard path. '''
+    """Tries to remove files by filename wildcard path"""
     for filename in iglob(temp_name + '*' if temp_name else temp_name):
         try:
             os.remove(filename)
@@ -227,9 +227,9 @@ def image_to_string(image,
                     nice=0,
                     boxes=False,
                     output_type=Output.STRING):
-    '''
+    """
     Returns the result of a Tesseract OCR run on the provided image to string
-    '''
+    """
     if boxes:
         # Added for backwards compatibility
         print('\nWarning: Argument \'boxes\' is deprecated and will be removed'
@@ -249,9 +249,9 @@ def image_to_boxes(image,
                    config='',
                    nice=0,
                    output_type=Output.STRING):
-    '''
+    """
     Returns string containing recognized characters and their box boundaries
-    '''
+    """
     config += ' batch.nochop makebox'
 
     if output_type == Output.DICT:
@@ -270,10 +270,10 @@ def image_to_data(image,
                   config='',
                   nice=0,
                   output_type=Output.STRING):
-    '''
+    """
     Returns string containing box boundaries, confidences,
     and other information. Requires Tesseract 3.05+
-    '''
+    """
     if output_type == Output.DICT:
         return file_to_dict(
             run_and_get_output(image, 'tsv', lang, config, nice), '\t', -1)
@@ -288,9 +288,9 @@ def image_to_osd(image,
                  config='',
                  nice=0,
                  output_type=Output.STRING):
-    '''
+    """
     Returns string containing the orientation and script detection (OSD)
-    '''
+    """
     config += ' --psm 0'
 
     if output_type == Output.DICT:
